@@ -2,9 +2,8 @@ import numpy as np
 import cv2
 
 ## The readImage function takes a file path as argument and returns image in binary form.
-## You can copy the code you wrote for section1.py here.
 def readImage(filePath):
-    #############  Add your Code here   ###############
+   
     img=cv2.imread(filePath)
     gray=cv2.cvtColor(img , cv2.COLOR_BGR2GRAY)
     ret,binaryImage = cv2.threshold(gray,127,255,cv2.THRESH_BINARY)
@@ -16,10 +15,10 @@ def readImage(filePath):
 ## and returns a stack consisting of all the neighbours of the cell as output.
 ## Note :- Neighbour refers to all the adjacent cells one can traverse to from that cell provided only horizontal
 ## and vertical traversal is allowed.
-## You can copy the code you wrote for section1.py here.
+
 def findNeighbours(img,row,column):
     neighbours = []
-    #############  Add your Code here   ###############
+   
     ncol=(row*20)+9
     nrow=(column*20)+9
     
@@ -46,9 +45,9 @@ def findNeighbours(img,row,column):
 ##  colourCell basically highlights the given cell by painting it with the given colourVal. Care should be taken that
 ##  the function doesn't paint over the black walls and only paints the empty spaces. This function returns the image
 ##  with the painted cell.
-##  You can copy the code you wrote for section1.py here.
+
 def colourCell(img,row,column,colourVal):
-    #############  Add your Code here   ###############
+    
     ncol=(row*20)
     nrow=(column*20)
     for i in range(nrow,nrow+20):
@@ -62,7 +61,7 @@ def colourCell(img,row,column,colourVal):
 ##  Function that accepts some arguments from user and returns the graph of the maze image.
 def buildGraph(length,neighbours):  ## You can pass your own arguments in this space.
     graph = {}
-    #############  Add your Code here   ###############
+   
     k=0
     #len_of_adj=len(neighbours)
     #print len_of_adj
@@ -78,8 +77,8 @@ def buildGraph(length,neighbours):  ## You can pass your own arguments in this s
 
 ##  Finds shortest path between two coordinates in the maze. Returns a set of coordinates from initial point
 ##  to final point.
-def findPath(graph,start,end,length): ## You can pass your own arguments in this space.
-    #############  Add your Code here   ###############
+def findPath(graph,start,end,length):=
+    
    
     shortest=[]
     prev={}
@@ -146,11 +145,11 @@ def main(filePath, flag = 0):
     graph = buildGraph( length,neighbours ) ## Build graph from maze image. Pass arguments as required.
     print graph
     shortestPath = findPath(graph,initial_point,final_point,length)  ## Find shortest path. Pass arguments as required.
-    print shortestPath             ## Print shortest path to verify
+    print shortestPath            
     string = str(shortestPath) + "\n"
     for i in shortestPath:         ## Loop to paint the solution path.
         img = colourCell(img, i[0], i[1], 200)
-    if __name__ == '__main__':     ## Return value for main() function.
+    if __name__ == '__main__':     
         return img
     else:
         if flag == 0:
@@ -158,7 +157,7 @@ def main(filePath, flag = 0):
         else:
             return graph
 
-## The main() function is called here. Specify the filepath of image in the space given.            
+          
 if __name__ == '__main__':
     filePath = 'maze00.jpg'        ## File path for test image
     img = main(filePath)           ## Main function call
